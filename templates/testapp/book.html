@@ -6,20 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    
+    <style>
+        *{
+            color: white;
+            border-radius: 1vw;
+            text-align: center;
+        }
+        td{
+            width: 12vw;
+            border: 1px solid white;
+        }
+    </style>
 </head>
-<body bgcolor="#bbb">
+<body bgcolor="#345" >
     <div id="main" align="center">
         <h1>Books</h1>
     </div>
     {% if books%}
     <div id="student">
-        <table border align="center">
+        <table border="2" align="center">
             <thead>
                 <th>Name</th>
                 <th>Author</th>
                 <th>Publication</th>
                 <th>Year</th>
+                <th>Actions</th>
             </thead>
             <tr>
                 {% for book in books %}
