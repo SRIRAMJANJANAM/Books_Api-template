@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+</head>
+<body bgcolor="#bbb">
+    <div id="main" align="center">
+        <h1>Books</h1>
+    </div>
+    {% if books%}
+    <div id="student">
+        <table border align="center">
+            <thead>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Publication</th>
+                <th>Year</th>
+            </thead>
+            <tr>
+                {% for book in books %}
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>
+                    {{book.publication}}
+                </td>
+                <td>{{book.year}}</td>
+                <td style=" border: 0;">
+                    <a href="{% url 'book_edit' book.id %}">Edit</a> | 
+                    <a href="{% url 'book_delete' book.id %}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    
+    </div>
+    {% else %}
+    <h1 align="center" style="color: red;">No Books Found</h1>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Form</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+</head>
+<body>
+    <div id="main" align="center">
+        <h1>Books Form</h1>
+    </div>
+    <div align="center" id="form-container">
+        <form method="POST">
+            {{form.as_p}}
+            {% csrf_token %}
+            <button type="submit" > Save </button>
+            <input type="reset" value="Cancel">
+          </form>
+    </div>
+    <script>
+        setTimeout(function() {
+            document.getElementById("form-container").classList.add("show");
+        }, 1000); 
+    </script>
+    
+</body>
+</html>
